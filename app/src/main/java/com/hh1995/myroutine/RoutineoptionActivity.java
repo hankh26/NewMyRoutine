@@ -18,6 +18,8 @@ public class RoutineoptionActivity extends AppCompatActivity {
     ImageButton up;
     ImageButton down;
 
+    int num=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,23 @@ public class RoutineoptionActivity extends AppCompatActivity {
         setNum=v.findViewById(R.id.set_num);
         up=v.findViewById(R.id.num_up);
         down=v.findViewById(R.id.num_down);
+
+        setNum.setText(num);
         builder.setView(v);
+
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num++;
+            }
+        });
+
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num--;
+            }
+        });
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

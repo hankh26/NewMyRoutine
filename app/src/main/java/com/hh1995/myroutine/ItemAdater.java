@@ -20,7 +20,6 @@ public class ItemAdater extends RecyclerView.Adapter {
     ArrayList<Item> items;
     Context context;
 
-    //String Bweigh="null";
 
 
     public ItemAdater(ArrayList<Item> items, Context context) {
@@ -52,10 +51,10 @@ public class ItemAdater extends RecyclerView.Adapter {
 //        vh.weight.setText(item.weigh);
 //        vh.fat.setText(item.fat);
 //        vh.muscle.setText(item.muscle);
-        vh.tvweight.setText(item.tvWeigh+"kg");
-        vh.tvfat.setText(item.tvFat+"%");
-        vh.tvmuscle.setText(item.tvMuscle+"kg");
-        Glide.with(context).load(item.img).into(vh.iv);
+        vh.tvweight.setText(item.weigh+"kg");
+        vh.tvfat.setText(item.fatRate+"%");
+        vh.tvmuscle.setText(item.muscle+"kg");
+        //Glide.with(context).load(item.img).into(vh.iv);
 
 
     }
