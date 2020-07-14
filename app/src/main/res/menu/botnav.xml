@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/timer"
+        android:icon="@drawable/ic_timer_black_24dp"
+        android:visible="true"
+        android:title="타이머"/>
+    <item android:id="@+id/routine"
+        android:icon="@drawable/ic_person_add_black_24dp"
+        android:title="루틴"/>
+
+    <item android:id="@+id/youSearch"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="영상검색"/>
+</menu>

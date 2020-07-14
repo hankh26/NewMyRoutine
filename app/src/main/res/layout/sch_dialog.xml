@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/sch_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일정 추가하기"
+        android:textColor="#FF000000"
+        android:textSize="24sp"/>
+    <EditText
+        android:id="@+id/sch_et"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:minWidth="300dp"
+        android:inputType="textImeMultiLine"
+        android:hint="일정" />
+
+</LinearLayout>

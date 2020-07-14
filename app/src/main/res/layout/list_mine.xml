@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:contentPadding="16dp"
+    android:layout_margin="4dp">
+
+    <RelativeLayout
+        android:id="@+id/riei"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날짜"
+        android:textColor="#FF000000"
+        android:textStyle="normal"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/weigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체중"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF000000"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/date"/>
+        <TextView
+            android:id="@+id/fat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체지방률"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF000000"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/weigh"/>
+        <TextView
+            android:id="@+id/muscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="골격근량"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF000000"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/fat"/>
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="200sp"
+            android:layout_height="160dp"
+            android:layout_below="@id/date"
+            android:layout_marginTop="4dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/dao"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_weigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxkg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF000000"
+            android:layout_marginLeft="48dp"
+            android:layout_toRightOf="@id/weigh"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/date"/>
+        <TextView
+            android:id="@+id/tv_fat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xx%"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/weigh"
+            android:textColor="#FF000000"
+            android:layout_marginTop="4dp"
+            android:layout_alignLeft="@id/tv_weigh"
+            android:layout_below="@id/weigh"/>
+        <TextView
+            android:id="@+id/tv_muscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%%kg"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/weigh"
+            android:textColor="#FF000000"
+            android:layout_alignLeft="@id/tv_weigh"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/fat"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".TimeActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="타이머"
+        android:gravity="center"
+        android:background="#333333"
+        android:textColor="#ffffff" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스톱워치"
+        android:onClick="clickStop"
+        android:layout_gravity="right"/>
+
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="72dp">
+    <TextView
+        android:id="@+id/tttttvvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="세트"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@id/tv_set"
+        android:textColor="#777777"
+        android:layout_alignBottom="@id/tv_set"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/tv_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@id/setBtn"
+        android:layout_marginRight="70dp"
+        android:background="#FFFFFF"
+        android:text="0"
+        android:textColor="#777777"
+        android:textSize="40sp" />
+
+    <Button
+        android:onClick="clickReset"
+        android:id="@+id/setBtn"
+        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="리셋"/>
+</RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="right"
+        android:onClick="clickop"
+        android:text="타이머설정"/>
+
+    <TextView
+        android:id="@+id/time_out"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:background="#FFFFFF"
+        android:textColor="#777777"
+        android:text="00:00" />
+
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_gravity="center">
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:onClick="myOnClick"
+        android:visibility="invisible"
+        android:text="취소"/>
+
+        <Button
+            android:id="@+id/btn_tstart"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:onClick="myOnClick"
+            android:text="시작" />
+
+
+        </FrameLayout>
+
+</LinearLayout>
