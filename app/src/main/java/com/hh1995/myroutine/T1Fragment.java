@@ -16,6 +16,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 import static android.app.Activity.RESULT_OK;
 
 public class T1Fragment extends Fragment {
@@ -50,7 +55,8 @@ public class T1Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getContext(),MyOptionActivity.class);
-                startActivityForResult(intent,101);
+                //startActivityForResult(intent,101);
+                startActivity(intent);
 
             }
         });
@@ -59,7 +65,8 @@ public class T1Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(),GoalActivity.class);
-                startActivityForResult(intent,100);
+                //startActivityForResult(intent,100);
+                startActivity(intent);
             }
         });
         recyclerView=v.findViewById(R.id.recycler);
@@ -67,48 +74,42 @@ public class T1Fragment extends Fragment {
         recyclerView.setAdapter(adater);
 
 
-
-
-
-
-
         return v;
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
-            case 100:
-                if (resultCode==RESULT_OK){
-                    String weigh=data.getStringExtra("weigh");
-                    String tall=data.getStringExtra("tall");
-                    String fatRate=data.getStringExtra("fatRate");
-                    String fatWei=data.getStringExtra("fatWei");
-                    String muscle=data.getStringExtra("muscle");
-                    String visceralFat=data.getStringExtra("visceralFat");
-                    String legMuscle=data.getStringExtra("legMuscle");
-                    String basal=data.getStringExtra("basal");
-                    tvWei.setText(weigh+"kg");
-                    tvMus.setText(muscle+"%");
-                    tvFat.setText(fatRate+"kg");
-                }
-                break;
-            case 101:
-                if (resultCode==RESULT_OK){
-                    String weigh=data.getStringExtra("weigh");
-                    String tall=data.getStringExtra("tall");
-                    String fatRate=data.getStringExtra("fatRate");
-                    String fatWei=data.getStringExtra("fatWei");
-                    String muscle=data.getStringExtra("muscle");
-                    String visceralFat=data.getStringExtra("visceralFat");
-                    String legMuscle=data.getStringExtra("legMuscle");
-                    String basal=data.getStringExtra("basal");
-                    items.add(0,new Item(R.drawable.dizni,weigh,fatRate,muscle));
-                    adater.notifyItemInserted(0);
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
+
+    void loadData(){
+        Retrofit retrofit=RetrofitHelper.getInstance();
+        RetrofitService retrofitService=retrofit.create(RetrofitService.class);
+        Call<ArrayList<Item>> call=retrofitService.loadDataFromRoutine();
+        call.enqueue(new Callback<ArrayList<Item>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Item>> call, Response<ArrayList<Item>> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<Item> item1=response.body();
+
+                    items.clear();
+                    adater.notifyDataSetChanged();
+
+                    for(Item item: item1){
+                        items.add(0,item);
+                        adater.notifyItemInserted(0);
+                    }
 
                 }
-                break;
-        }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Item>> call, Throwable t) {
+
+            }
+
+        });
+
     }
 }
