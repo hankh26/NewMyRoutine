@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".RoutineoptionActivity">
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
     <LinearLayout
         android:id="@+id/linn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true">
     <Button
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="취소"
+        android:onClick="clickMove"
         android:layout_alignParentRight="true"/>
         <Button
+            android:id="@+id/btnStorage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="clickMove"
             android:text="저장"
             android:layout_alignParentRight="true"/>
     </LinearLayout>
@@ -31,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_below="@id/linn"
+        android:maxLength="20"
         android:minWidth="120dp"
         android:maxLines="1"
         android:maxWidth="120dp"
@@ -52,13 +59,12 @@
         android:onClick="clickExerciseAdd"
         android:layout_marginTop="24dp"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnEx">
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/btnEx"
         android:id="@+id/addRecycler"
         android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         android:layout_height="match_parent"/>
-    </ScrollView>
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

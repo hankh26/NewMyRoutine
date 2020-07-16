@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RoutineActivity extends AppCompatActivity {
@@ -18,6 +19,12 @@ public class RoutineActivity extends AppCompatActivity {
 
     public void clickPlus(View view) {
         Intent intent=new Intent(RoutineActivity.this,RoutineoptionActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,101);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

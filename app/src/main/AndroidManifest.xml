@@ -29,7 +29,7 @@
         <activity android:name=".RoutineoptionActivity"></activity>
         <activity android:name=".RoutineActivity"></activity>
         <activity android:name=".MyOptionActivity"></activity>
-        <activity android:name=".GoalActivity"></activity>v
+        <activity android:name=".GoalActivity"></activity>
 
     </application>
 
