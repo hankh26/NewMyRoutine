@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
 
     <LinearLayout
@@ -90,14 +93,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginTop="16dp"
         android:weightSum="7"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/tv_mon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:textSize="24sp"
             android:gravity="center"
             android:background="#66FF0000"
@@ -106,7 +109,7 @@
         <TextView
             android:id="@+id/tv_tue"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:textSize="24sp"
             android:gravity="center"
             android:background="#66FF5500"
@@ -116,25 +119,26 @@
         <TextView
             android:id="@+id/tv_wed"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:textSize="24sp"
             android:gravity="center"
             android:textColor="#FF000000"
             android:background="#66FFC800"
             android:layout_weight="1"/>
+
         <TextView
             android:id="@+id/tv_thur"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textColor="#FF000000"
+            android:layout_height="300dp"
+            android:layout_weight="1"
             android:background="#6651FF00"
             android:gravity="center"
-            android:layout_weight="1"/>
+            android:textColor="#FF000000"
+            android:textSize="24sp" />
         <TextView
             android:id="@+id/tv_fri"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:textSize="24sp"
             android:textColor="#FF000000"
             android:background="#66006AFF"
@@ -143,7 +147,7 @@
         <TextView
             android:id="@+id/tv_sat"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:textSize="24sp"
             android:gravity="center"
             android:background="#A8673AB7"
@@ -153,7 +157,7 @@
         <TextView
             android:id="@+id/tv_sun"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:gravity="center"
             android:textSize="24sp"
             android:background="#A89C27B0"
@@ -161,6 +165,12 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+    </LinearLayout>
 
 
-</LinearLayout>
+
+</ScrollView>

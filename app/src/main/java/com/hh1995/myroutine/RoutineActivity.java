@@ -6,13 +6,27 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class RoutineActivity extends AppCompatActivity {
+
+    ArrayList<RoutineItem> items=new ArrayList<>();
+    RoutineAdapter adapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
+
+        items.add(new RoutineItem("밴치","오늘"));
+
+        recyclerView=findViewById(R.id.myRoutine);
+        adapter=new RoutineAdapter(this,items);
+        recyclerView.setAdapter(adapter);
+
 
 
     }

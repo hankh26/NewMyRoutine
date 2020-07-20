@@ -8,77 +8,36 @@
     <TextView
         android:id="@+id/numadd"
         android:layout_width="0dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="1"
         android:textSize="16dp"
+        android:paddingLeft="16dp"
         android:textColor="#FF000000"/>
-    <TextView
+    <EditText
         android:id="@+id/kgadd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="kg"
-        android:layout_weight="4"
+        android:hint="kg"
+        android:layout_weight="3"
         android:layout_marginTop="12dp"
         android:paddingLeft="24dp"
         android:layout_centerHorizontal="true"
         android:textSize="16dp"
         android:textColor="#FF000000"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_toRightOf="@id/kg"
-        android:layout_marginLeft="8dp">
 
-        <ImageButton
-            android:id="@+id/num_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clickNum"
-            android:background="@drawable/ic_keyboard_arrow_up_black_24dp"/>
-        <ImageButton
-            android:id="@+id/num_down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clickNum"
-            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"/>
-    </LinearLayout>
-    <TextView
+    <EditText
         android:id="@+id/lapadd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="랩"
+        android:hint="랩"
         android:layout_marginTop="12dp"
         android:paddingLeft="12dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:textSize="16dp"
-        android:layout_toLeftOf="@id/mlm"
         android:textColor="#FF000000"/>
-    <LinearLayout
-        android:id="@+id/mlm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="8dp"
-        android:orientation="vertical"
-        android:layout_alignParentRight="true">
 
-        <ImageButton
-            android:id="@+id/num_up2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clickNum"
-            android:background="@drawable/ic_keyboard_arrow_up_black_24dp"/>
-        <ImageButton
-            android:id="@+id/num_down2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clickNum"
-            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"/>
-
-    </LinearLayout>
 
 
 

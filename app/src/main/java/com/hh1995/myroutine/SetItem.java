@@ -1,16 +1,15 @@
 package com.hh1995.myroutine;
 
 public class SetItem {
-    int num;
-    int kg;
-    int lap;
+    String num;
+    String kg;
+    String lap;
 
     public SetItem() {
     }
 
-    public SetItem(int num, int kg, int lap) {
+    public SetItem(String num) {
         this.num = num;
-        this.kg = kg;
-        this.lap = lap;
+
     }
 }

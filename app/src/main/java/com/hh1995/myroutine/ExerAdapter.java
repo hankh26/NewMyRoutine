@@ -1,6 +1,8 @@
 package com.hh1995.myroutine;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,11 +27,12 @@ public class ExerAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<ExerItem> items;
 
-    ArrayList<SetItem> setItems=new ArrayList<>();
     SetAdater setAdater;
 
+    String name;
 
-    int num=0;
+
+    int num=0 ;
 
     public ExerAdapter() {
     }
@@ -54,14 +57,26 @@ public class ExerAdapter extends RecyclerView.Adapter {
         VH vh=(VH)holder;
         ExerItem exerItem=items.get(position);
         vh.exName.setText(exerItem.exName);
+
+        setAdater=new SetAdater(context,exerItem.setItems);
+        vh.recyclerView.setAdapter(setAdater);
+        vh.getBtnRecyler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exerItem.setItems.add(new SetItem(num+""));
+                Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
+                setAdater.notifyItemInserted(exerItem.setItems.size());
+                num++;
+            }
+        });
+
+
 }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-
-
 
     class VH extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
@@ -73,12 +88,9 @@ public class ExerAdapter extends RecyclerView.Adapter {
         Button getBtnRecyler;
 
         TextView setNum;
-        TextView kgNum;
-        TextView lapNum;
-        ImageButton up;
-        ImageButton up2;
-        ImageButton down;
-        ImageButton down2;
+        EditText kgNum;
+        EditText lapNum;
+
 
         RecyclerView recyclerView;
 
@@ -93,33 +105,11 @@ public class ExerAdapter extends RecyclerView.Adapter {
             setNum=itemView.findViewById(R.id.numnum);
             kgNum=itemView.findViewById(R.id.kg);
             lapNum=itemView.findViewById(R.id.lap);
-            up=itemView.findViewById(R.id.numup);
-            up2=itemView.findViewById(R.id.numup2);
-            down=itemView.findViewById(R.id.numdown);
-            down2=itemView.findViewById(R.id.numdown2);
+
             recyclerView=itemView.findViewById(R.id.AddRR);
 
             itemView.setOnCreateContextMenuListener(this);
 
-            setAdater=new SetAdater(context,setItems);
-            recyclerView.setAdapter(setAdater);
-
-            getBtnRecyler.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                        setItems.add(new SetItem());
-//                        notifyDataSetChanged();
-                    }
-
-            });
-            btnRecyler.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                        setItems.remove(0);
-//                        notifyItemRemoved(0);
-//                        notifyItemRangeChanged(0,setItems.size());
-                }
-            });
         }
 
 
@@ -134,8 +124,8 @@ public class ExerAdapter extends RecyclerView.Adapter {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case 1:
+                        Toast.makeText(context, item.getItemId()+"", Toast.LENGTH_SHORT).show();
                         items.remove(getAdapterPosition());
-
                         notifyItemRemoved(getAdapterPosition());
                         notifyItemRangeChanged(getAdapterPosition(),items.size());
                         break;

@@ -68,7 +68,7 @@
             android:onClick="clickAC"
             android:text="+"/>
     </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="12"
@@ -77,77 +77,33 @@
             <TextView
                 android:id="@+id/numnum"
                 android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:text="1"
+                android:paddingLeft="16dp"
                 android:textSize="16dp"
                 android:textColor="#FF000000"/>
-            <TextView
+            <EditText
                 android:id="@+id/kg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="kg"
-                android:layout_weight="4"
-                android:layout_marginTop="12dp"
+                android:hint="kg"
+                android:layout_weight="3"
                 android:paddingLeft="24dp"
                 android:layout_centerHorizontal="true"
                 android:textSize="16dp"
                 android:textColor="#FF000000"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_toRightOf="@id/kg"
-                android:layout_marginLeft="8dp">
 
-                <ImageButton
-                    android:id="@+id/numup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickNum"
-                    android:background="@drawable/ic_keyboard_arrow_up_black_24dp"/>
-                <ImageButton
-                    android:id="@+id/numdown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickNum"
-                    android:background="@drawable/ic_keyboard_arrow_down_black_24dp"/>
-            </LinearLayout>
-            <TextView
+            <EditText
                 android:id="@+id/lap"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="랩"
-                android:layout_marginTop="12dp"
+                android:hint="랩"
                 android:paddingLeft="12dp"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:textSize="16dp"
-                android:layout_toLeftOf="@id/mlm"
                 android:textColor="#FF000000"/>
-            <LinearLayout
-                android:id="@+id/mlm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="60dp"
-                android:layout_marginLeft="8dp"
-                android:orientation="vertical"
-                android:layout_alignParentRight="true">
 
-                <ImageButton
-                    android:id="@+id/numup2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickNum"
-                    android:background="@drawable/ic_keyboard_arrow_up_black_24dp"/>
-                <ImageButton
-                    android:id="@+id/numdown2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickNum"
-                    android:background="@drawable/ic_keyboard_arrow_down_black_24dp"/>
-
-            </LinearLayout>
 
 
 

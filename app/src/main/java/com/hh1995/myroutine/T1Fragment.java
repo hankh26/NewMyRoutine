@@ -1,6 +1,8 @@
 package com.hh1995.myroutine;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,23 +67,57 @@ public class T1Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(),GoalActivity.class);
-                //startActivityForResult(intent,100);
+//                startActivityForResult(intent,100);
                 startActivity(intent);
+
             }
         });
         recyclerView=v.findViewById(R.id.recycler);
         adater=new ItemAdater(items,getContext());
         recyclerView.setAdapter(adater);
 
+        SharedPreferences pref=getContext().getSharedPreferences("Data", Context.MODE_PRIVATE);
+        String weigh=pref.getString("weigh","0");
+        String tall=pref.getString("tall","0");
+        String fatRate=pref.getString("fatRate","0");
+        String fatWei=pref.getString("fatWei","0");
+        String muscle=pref.getString("muscle","0");
+        String visceralFat=pref.getString("visceralFat","0");
+        String legMuscle=pref.getString("legMuscle","0");
+        String basal=pref.getString("basal","0");
+
+        tvWei.setText(weigh+"kg");
+        tvFat.setText(fatRate+"%");
+        tvMus.setText(muscle+"kg");
+
+
 
         return v;
     }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode==100&&resultCode==RESULT_OK){
+//            String weigh=data.getStringExtra("weigh");
+//            String tall=data.getStringExtra("tall");
+//            String fatRate=data.getStringExtra("fatRate");
+//            String fatWei=data.getStringExtra("fatWei");
+//            String muscle=data.getStringExtra("muscle");
+//            String visceralFat=data.getStringExtra("visceralFat");
+//            String legMuscle=data.getStringExtra("legMuscle");
+//            String basal=data.getStringExtra("basal");
+//        }
+//    }
 
     @Override
     public void onResume() {
         super.onResume();
         loadData();
+
     }
+
+
 
     void loadData(){
         Retrofit retrofit=RetrofitHelper.getInstance();

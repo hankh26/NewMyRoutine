@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,6 +92,11 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
                         tvmon.setText(strMon+"");
+
+                        SharedPreferences pref=getContext().getSharedPreferences("Mon",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
                     }
                 });
 
@@ -117,6 +123,11 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String str = schEt.getText().toString();
                         tvtue.setText(str+"");
+                        SharedPreferences pref=getContext().getSharedPreferences("Tue",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("tueMon",str);
+                        editor.commit();
+
                     }
                 });
 
@@ -141,6 +152,10 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
                         tvwed.setText(strMon+"");
+                        SharedPreferences pref=getContext().getSharedPreferences("Wed",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
                     }
                 });
 
@@ -160,11 +175,21 @@ public class T2Fragment extends Fragment {
                 schTv=vv.findViewById(R.id.sch_tv);
                 schEt=vv.findViewById(R.id.sch_et);
                 builder.setView(vv);
+
+
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
-                        tvthu.setText(strMon+"");
+
+                        SharedPreferences pref=getContext().getSharedPreferences("Thu",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
+
+                        SharedPreferences pref1=getContext().getSharedPreferences("Thu",Context.MODE_PRIVATE);
+                        String thuP=pref1.getString("strMon","");
+                        tvthu.setText(thuP+"");
                     }
                 });
 
@@ -189,6 +214,10 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
                         tvfri.setText(strMon+"");
+                        SharedPreferences pref=getContext().getSharedPreferences("Fri",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
                     }
                 });
 
@@ -213,6 +242,10 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
                         tvsat.setText(strMon+"");
+                        SharedPreferences pref=getContext().getSharedPreferences("Sat",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
                     }
                 });
 
@@ -237,6 +270,10 @@ public class T2Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String strMon = schEt.getText().toString();
                         tvsun.setText(strMon+"");
+                        SharedPreferences pref=getContext().getSharedPreferences("Sun",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= pref.edit();
+                        editor.putString("strMon",strMon);
+                        editor.commit();
                     }
                 });
 

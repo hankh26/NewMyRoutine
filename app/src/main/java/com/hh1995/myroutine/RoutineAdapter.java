@@ -57,7 +57,7 @@ public class RoutineAdapter extends RecyclerView.Adapter {
             super(itemView);
             title=itemView.findViewById(R.id.routine_title);
             date=itemView.findViewById(R.id.routine_date);
-            listView=itemView.findViewById(R.id.list);
+            //listView=itemView.findViewById(R.id.list);
             btn=itemView.findViewById(R.id.btnAdd);
         }
     }
