@@ -2,14 +2,19 @@ package com.hh1995.myroutine;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class RoutineoptionActivity extends AppCompatActivity {
     EditText et;
@@ -20,50 +25,41 @@ public class RoutineoptionActivity extends AppCompatActivity {
 
     int num=0;
 
+    ArrayList<ExerItem> items=new ArrayList<>();
+    ExerAdapter adapter;
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routineoption);
+
+        et=findViewById(R.id.ett);
+
+
+        adapter=new ExerAdapter(this,items);
+        recyclerView=findViewById(R.id.addRecycler);
+        recyclerView.setAdapter(adapter);
+
+
+
     }
 
     public void clickExerciseAdd(View view) {
-        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+            items.add(0,new ExerItem());
+            adapter.notifyItemInserted(0);
+    }
 
-        builder.setTitle("운동 추가");
 
-        LayoutInflater inflater=this.getLayoutInflater();
-        View v=inflater.inflate(R.layout.routine_dialog,null);
-        et=v.findViewById(R.id.ex_name);
-        tvSet=v.findViewById(R.id.tv_set);
-        setNum=v.findViewById(R.id.set_num);
-        up=v.findViewById(R.id.num_up);
-        down=v.findViewById(R.id.num_down);
+    public void clickMove(View view) {
+        switch (view.getId()){
+            case R.id.btnStorage:
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnBack:
+                finish();
 
-        setNum.setText(num);
-        builder.setView(v);
-
-        up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                num++;
-            }
-        });
-
-        down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                num--;
-            }
-        });
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog dialog=builder.create();
-        dialog.setCancelable(true);
-        dialog.show();
+                break;
+        }
     }
 }

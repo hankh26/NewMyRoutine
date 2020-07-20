@@ -1,6 +1,7 @@
 package com.hh1995.myroutine;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -72,19 +73,33 @@ public class GoalActivity extends AppCompatActivity {
                 String legMuscle=etlegMuscle.getText().toString();
                 String basal=etbasal.getText().toString();
 
-                Intent intent=getIntent();
-                intent.putExtra("weigh",weigh);
-                intent.putExtra("tall",tall);
-                intent.putExtra("fatRate",fatRate);
-                intent.putExtra("fatWei",fatWei);
-                intent.putExtra("muscle",muscle);
-                intent.putExtra("visceralFat",visceralFat);
-                intent.putExtra("legMuscle",legMuscle);
-                intent.putExtra("basal",basal);
+                SharedPreferences pref=getSharedPreferences("Data",MODE_PRIVATE);
+                SharedPreferences.Editor editor=pref.edit();
+                editor.putString("weigh",weigh);
+                editor.putString("tall",tall);
+                editor.putString("fatRate",fatRate);
+                editor.putString("fatWei",fatWei);
+                editor.putString("muscle",muscle);
+                editor.putString("visceralFat",visceralFat);
+                editor.putString("legMuscle",legMuscle);
+                editor.putString("basal",basal);
+                editor.commit();
 
-                setResult(RESULT_OK,intent);
-                Toast.makeText(GoalActivity.this, weigh+"", Toast.LENGTH_SHORT).show();
                 finish();
+//
+//                Intent intent=getIntent();
+//                intent.putExtra("weigh",weigh);
+//                intent.putExtra("tall",tall);
+//                intent.putExtra("fatRate",fatRate);
+//                intent.putExtra("fatWei",fatWei);
+//                intent.putExtra("muscle",muscle);
+//                intent.putExtra("visceralFat",visceralFat);
+//                intent.putExtra("legMuscle",legMuscle);
+//                intent.putExtra("basal",basal);
+//
+//                setResult(RESULT_OK,intent);
+//                Toast.makeText(GoalActivity.this, weigh+"", Toast.LENGTH_SHORT).show();
+//                finish();
             }
         });
 

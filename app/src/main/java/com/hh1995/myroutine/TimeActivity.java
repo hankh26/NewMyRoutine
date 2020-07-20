@@ -131,6 +131,7 @@ public class TimeActivity extends AppCompatActivity {
                 num++;
                 tvSet.setText(num+"");
                 btnCancel.setVisibility(View.INVISIBLE);
+                btnStart.setVisibility(View.VISIBLE);
             }
         };
 

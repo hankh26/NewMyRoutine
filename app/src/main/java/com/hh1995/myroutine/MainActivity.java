@@ -120,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent3=new Intent(Intent.ACTION_VIEW);
                         intent3.setData(Uri.parse("https://www.youtube.com/"));
                         intent3.setPackage("com.google.android.youtube");
-                        startActivity(intent3);	// do not edit
+                        startActivity(intent3);
+
 
 
                 };

@@ -31,22 +31,28 @@
             android:text="제목"
             android:textColor="#FF000000"
             android:textSize="24sp"/>
-
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="300dp"
-            android:layout_height="130dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_below="@id/routine_title">
 
-<!--            <TextView-->
-<!--                android:id="@+id/routine_set1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20sp"-->
-<!--                android:text="세트*운동."-->
-<!--                android:textColor="#FF000000"-->
-<!--                android:textSize="20sp" />-->
-        </ListView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set  *"
+            android:textSize="20sp"
+            android:textColor="#FF000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동"
+                android:layout_marginLeft="24dp"
+                android:textSize="20sp"
+                android:textColor="#FF000000"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/routine_date"

@@ -4,20 +4,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class RoutineActivity extends AppCompatActivity {
+
+    ArrayList<RoutineItem> items=new ArrayList<>();
+    RoutineAdapter adapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
 
+        items.add(new RoutineItem("밴치","오늘"));
+
+        recyclerView=findViewById(R.id.myRoutine);
+        adapter=new RoutineAdapter(this,items);
+        recyclerView.setAdapter(adapter);
+
+
 
     }
 
     public void clickPlus(View view) {
         Intent intent=new Intent(RoutineActivity.this,RoutineoptionActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,101);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }
