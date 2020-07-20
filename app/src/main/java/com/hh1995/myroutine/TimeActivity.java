@@ -173,6 +173,7 @@ public class TimeActivity extends AppCompatActivity {
                 }
 
                 timeOut.setText(etMinNum+":"+etSecondNum);
+                btnStart.setEnabled(true);
 
             }
         });
