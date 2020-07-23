@@ -29,20 +29,20 @@ public class RoutineoptionActivity extends AppCompatActivity {
     ExerAdapter adapter;
     RecyclerView recyclerView;
 
+    String[] name;
+    String title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routineoption);
 
         et=findViewById(R.id.ett);
-
-
         adapter=new ExerAdapter(this,items);
         recyclerView=findViewById(R.id.addRecycler);
         recyclerView.setAdapter(adapter);
 
-
-
+        title=et.getText().toString();
     }
 
     public void clickExerciseAdd(View view) {
@@ -54,7 +54,11 @@ public class RoutineoptionActivity extends AppCompatActivity {
     public void clickMove(View view) {
         switch (view.getId()){
             case R.id.btnStorage:
-                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this,RoutineActivity.class);
+                intent.putExtra("title",title);
+                setResult(100,intent);
+                finish();
+
                 break;
             case R.id.btnBack:
                 finish();

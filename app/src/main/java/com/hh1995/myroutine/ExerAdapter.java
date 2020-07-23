@@ -69,8 +69,6 @@ public class ExerAdapter extends RecyclerView.Adapter {
                 num++;
             }
         });
-
-
 }
 
     @Override

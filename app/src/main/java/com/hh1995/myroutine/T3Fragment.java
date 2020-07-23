@@ -23,9 +23,8 @@ public class T3Fragment extends Fragment {
     GalAdapter adapter;
     RecyclerView recyclerView;
 
-
-
     RecyclerView recyclerView2;
+
 
     @Nullable
     @Override
