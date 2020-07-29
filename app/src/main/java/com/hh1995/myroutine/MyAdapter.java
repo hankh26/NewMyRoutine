@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class MyAdapter extends FragmentPagerAdapter {
 
     Fragment[] fragments=new Fragment[3];
-    String[] tabTitles =new String[]{"목표/인바디","달력","갤러리"};
+    String[] tabTitles =new String[]{"목표/인바디","일정","갤러리"};
 
 
 

@@ -23,7 +23,7 @@
         android:id="@+id/llroutin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="11"
+        android:weightSum="3"
         android:layout_below="@id/exer_name"
         android:layout_marginTop="8dp">
 
@@ -32,7 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="세트"
-        android:layout_weight="3"
+        android:layout_weight="1"
         android:textSize="16dp"
         android:textColor="#FF000000"/>
         <TextView
@@ -40,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="무게"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:textSize="16dp"
             android:textColor="#FF000000"/>
         <TextView
@@ -51,35 +51,20 @@
             android:text="랩"
             android:textSize="16dp"
             android:textColor="#FF000000"/>
-        <Button
-            android:id="@+id/btnRecycler"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:layout_alignParentRight="true"
-            android:onClick="clickAC"
-            android:text="-"/>
-        <Button
-            android:id="@+id/btnRecycler_add"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:layout_alignParentRight="true"
-            android:onClick="clickAC"
-            android:text="+"/>
+
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="12"
+            android:weightSum="3"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/numnum"
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:hint="1"
                 android:paddingLeft="16dp"
                 android:textSize="16dp"
                 android:textColor="#FF000000"/>
@@ -87,8 +72,8 @@
                 android:id="@+id/kg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="kg"
-                android:layout_weight="3"
+                android:hint="ex)30~50"
+                android:layout_weight="1"
                 android:paddingLeft="24dp"
                 android:layout_centerHorizontal="true"
                 android:textSize="16dp"
@@ -100,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:hint="랩"
                 android:paddingLeft="12dp"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:textSize="16dp"
                 android:textColor="#FF000000"/>
 

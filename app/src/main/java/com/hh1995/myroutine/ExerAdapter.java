@@ -60,15 +60,7 @@ public class ExerAdapter extends RecyclerView.Adapter {
 
         setAdater=new SetAdater(context,exerItem.setItems);
         vh.recyclerView.setAdapter(setAdater);
-        vh.getBtnRecyler.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exerItem.setItems.add(new SetItem(num+""));
-                Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
-                setAdater.notifyItemInserted(exerItem.setItems.size());
-                num++;
-            }
-        });
+
 }
 
     @Override
@@ -82,10 +74,8 @@ public class ExerAdapter extends RecyclerView.Adapter {
         TextView exSet;
         TextView exKg;
         TextView exLap;
-        Button btnRecyler;
-        Button getBtnRecyler;
 
-        TextView setNum;
+        EditText setNum;
         EditText kgNum;
         EditText lapNum;
 
@@ -98,8 +88,7 @@ public class ExerAdapter extends RecyclerView.Adapter {
             exSet=itemView.findViewById(R.id.setset);
             exKg=itemView.findViewById(R.id.kgkg);
             exLap=itemView.findViewById(R.id.raprap);
-            btnRecyler=itemView.findViewById(R.id.btnRecycler);
-            getBtnRecyler=itemView.findViewById(R.id.btnRecycler_add);
+
             setNum=itemView.findViewById(R.id.numnum);
             kgNum=itemView.findViewById(R.id.kg);
             lapNum=itemView.findViewById(R.id.lap);

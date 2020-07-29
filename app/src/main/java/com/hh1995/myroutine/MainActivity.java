@@ -169,10 +169,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void weather(View view) {
-        we=we.replace("오후","\n오후");
+        //we=we.replace("오후","\n오후");
         Toast.makeText(context, we+"", Toast.LENGTH_LONG).show();
 
     }
+
 
     private class getData1 extends AsyncTask<String, Void, String> {
         // String 으로 값을 전달받은 값을 처리하고, Boolean 으로 doInBackground 결과를 넘겨준다.
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 String text1 = targetElement1.text();
                 String text2 = targetElement2.text();
                 //String text3 = targetElement3.text();
-                String text = "오늘 "+text1 + "\n" + "내일 "+text2;
+                String text = text1 + "\n" + text2;
                 we=text;
                 return text;
             } catch (IOException e) {
