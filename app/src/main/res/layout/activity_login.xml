@@ -35,7 +35,8 @@
         android:layout_below="@id/googleButton"
         android:layout_centerHorizontal="true"
         android:text="비회원 로그인"
+        android:layout_marginTop="10dp"
         android:onClick="onClick"
-        android:background="#C1C1C1"/>
+        android:background="#FADCFF"/>
 
 </RelativeLayout>

@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             TedPermission.with(MainActivity.this)
                     .setPermissionListener(permissionlistener)
                     .setRationaleMessage("앱을 이용하기 위해서는 접근 권한이 필요합니다")
-                    .setDeniedMessage("앱에서 요구하는 권한설정이 필요합니다...\n [설정] > [권한] 에서 사용으로 활성화해주세요.")
+                    .setDeniedMessage("앱에서 요구하는 권한설정이 필요합니다.")
                     .setPermissions(new String[]{
                             android.Manifest.permission.WRITE_CONTACTS, // 주소록 액세스 권한
                             android.Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -176,15 +176,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     private class getData1 extends AsyncTask<String, Void, String> {
-        // String 으로 값을 전달받은 값을 처리하고, Boolean 으로 doInBackground 결과를 넘겨준다.
+
         @Override
         protected String doInBackground(String... params) {
             try {
-                Document document = Jsoup.connect(params[0].toString()).get(); // Web에서 내용을 가져온다.
-                Elements elements = document.select("td"); // 내용중에서 원하는 부분을 가져온다.
-                Element targetElement1 = elements.get(0);//1.현시간 2.온도 3.미세먼지
-                Element targetElement2 = elements.get(1);//1.현시간 2.온도 3.미세먼지
-                //Element targetElement3 = elements.get(2);//1.현시간 2.온도 3.미세먼지
+                Document document = Jsoup.connect(params[0].toString()).get();
+                Elements elements = document.select("td");
+                Element targetElement1 = elements.get(0);
+                Element targetElement2 = elements.get(1);
+                //Element targetElement3 = elements.get(2);
                 String text1 = targetElement1.text();
                 String text2 = targetElement2.text();
                 //String text3 = targetElement3.text();
@@ -206,8 +206,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void NotConnected_showAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("네트워크 연결 오류");
-        builder.setMessage("사용 가능한 무선네트워크가 없습니다.\n" + "먼저 무선네트워크 연결상태를 확인해 주세요.")
+        builder.setTitle("연결 오류");
+        builder.setMessage("네트워크가 없습니다.")
                 .setCancelable(false)
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
