@@ -1,8 +1,18 @@
 package com.hh1995.myroutine;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -12,6 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 public class TimeActivity extends AppCompatActivity {
 
@@ -132,6 +143,37 @@ public class TimeActivity extends AppCompatActivity {
                 tvSet.setText(num+"");
                 btnCancel.setVisibility(View.INVISIBLE);
                 btnStart.setVisibility(View.VISIBLE);
+
+
+                //=================
+                NotificationManager manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                NotificationCompat.Builder builder=null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel channel=new NotificationChannel("ch02","channel#2",NotificationManager.IMPORTANCE_HIGH);
+                    manager.createNotificationChannel(channel);
+
+                    builder=new NotificationCompat.Builder(TimeActivity.this,"ch02");
+                }else {
+                    builder=new NotificationCompat.Builder(TimeActivity.this,null);
+                }
+
+                builder.setSmallIcon(R.drawable.ic_stat_name);
+                builder.setContentTitle("종료알림");
+                builder.setContentText("설정알림이 종료되었습니다.");
+
+                builder.setVibrate(new long[]{0,2000,1000,2000});
+                Uri uri=Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.s_goodjob);
+                builder.setSound(uri);
+
+                Intent intent=new Intent(TimeActivity.this,TimeActivity.class);
+                PendingIntent pendingIntent=PendingIntent.getActivity(TimeActivity.this,10,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                builder.setContentIntent(pendingIntent);
+                builder.setAutoCancel(true);
+                Notification notification=builder.build();
+                //manager.notify(1,notification);
+               manager.notify(2,notification);
+
             }
         };
 

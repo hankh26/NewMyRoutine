@@ -98,7 +98,7 @@
                     android:layout_below="@id/date"
                     android:layout_marginTop="4dp"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/ms_04"
+                    android:src="@drawable/body"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"/>
 
